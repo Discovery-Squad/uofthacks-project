@@ -15,24 +15,24 @@ function App() {
     <Routes>
       
       {/* Onboard */}
-      <Route exact path="/" component={Intro}/>
-      <Route path="/login" component={Login}/>
-      <Route path="/signup" component={SignUp}/>
+      <Route exact path="/" element={<Intro/>}/>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/signup" element={<SignUp/>}/>
 
       {/* Homescreen */}
-      <Route path="/home" component={HomeScreen}/>
+      <Route path="/home" element={<HomeScreen/>}/>
 
       {/* Map */}
-      <Route path="/explore" component={Explore}/>
+      <Route path="/explore" element={<Explore/>}/>
 
       {/* Run */}
-      <Route path="/run" component={ThemedRun}/>
+      <Route path="/run" element={<ThemedRun/>}/>
 
       {/* Preferences */}
-      <Route path="/preferences" component={Preferences}/>
+      <Route path="/preferences" element={<Preferences/>}/>
 
       {/* Profile */}
-      <Route path="/myprofile" component={MyProfile}/>
+      <Route path="/myprofile" element={<MyProfile/>}/>
 
     </Routes>
     </BrowserRouter>
