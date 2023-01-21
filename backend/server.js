@@ -1,12 +1,24 @@
 import express from "express";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import bodyParser from "body-parser";
 
 import { initializeApp } from "firebase/app";
 
 import writeUserData from "./controllers/write_sample.js";
 
+import toursRouter from "./routes/tours.js";
+
 // Initialize express app
 const app = express();
 const port = process.env.PORT || 8000;
+
+// app.use(express.json());
+app.use(cors());
+app.use(bodyParser.json());
+
+// Store routing middleware.
+app.use("/tours", toursRouter);
 
 // Firebase configuration 
 const firebaseConfig = {

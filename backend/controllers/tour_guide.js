@@ -1,4 +1,5 @@
-import { cohere } from "cohere-ai";
+// import { cohere } from "cohere-ai";
+import cohere from "cohere-ai";
 
 // Initialize the cohere client with the trial API key
 cohere.init('ftC04BtCJRft9XSpIETUXY50QHIz7BKmPWaZee4p');
@@ -11,7 +12,11 @@ cohere.init('ftC04BtCJRft9XSpIETUXY50QHIz7BKmPWaZee4p');
  * @param location The name of the landmark at the user's current location
  * @param article The wikipedia article that contains information about the above location
  */
-const generateLandmarkDetails = async (article) => {
+export const generateLandmarkDetails = async (location, article) => {
+  // Initialize the cohere client with the trial API key
+  cohere.init('ftC04BtCJRft9XSpIETUXY50QHIz7BKmPWaZee4p');
+  console.log("bruh");
+  
   const response = await cohere.generate({
     model: "command-xlarge-nightly",
     prompt: `
@@ -26,6 +31,8 @@ const generateLandmarkDetails = async (article) => {
   });
 
   console.log(`Prediction: ${response.body.generations[0].text}`);
+
+  return response.body.generations[0].text;
 };
 
 /**
@@ -34,7 +41,7 @@ const generateLandmarkDetails = async (article) => {
  * @param distanceLeft The integer number of kilometers that the user has left in their run.
  * @returns string containing motivitional words and remaining distance
  */
-const generateMotivationalResponse = async (distanceLeft) => {
+export const generateMotivationalResponse = async (distanceLeft) => {
     const response = await cohere.generate({
         model: "command-xlarge-nightly",
         prompt: `Assume you are a motivational running coach.
