@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HomeScreen } from './containers/homescreen/homescreen';
 import { Explore } from './containers/map/explore';
 import { Intro } from './containers/onboarding/intro';
@@ -12,29 +12,29 @@ import { ThemedRun } from './containers/themedrun/run';
 function App() {
   return (
     <BrowserRouter>
-    <Switch>
+    <Routes>
       
-      //Onboard
+      {/* Onboard */}
       <Route exact path="/" component={Intro}/>
       <Route path="/login" component={Login}/>
       <Route path="/signup" component={SignUp}/>
 
-      //Homescreen
+      {/* Homescreen */}
       <Route path="/home" component={HomeScreen}/>
 
-      //Map
+      {/* Map */}
       <Route path="/explore" component={Explore}/>
 
-      //Run
+      {/* Run */}
       <Route path="/run" component={ThemedRun}/>
 
-      //Preferences
+      {/* Preferences */}
       <Route path="/preferences" component={Preferences}/>
 
-      //Profile
+      {/* Profile */}
       <Route path="/myprofile" component={MyProfile}/>
 
-    </Switch>
+    </Routes>
     </BrowserRouter>
   );
 }
