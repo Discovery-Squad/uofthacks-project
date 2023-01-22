@@ -7,10 +7,12 @@ import {
     connectAuthEmulator
   } from 'firebase/auth';
 
-
-  
   // Login using email/password
  export const loginUser = async (fb, req, res) => {
+    const auth = getAuth(fb);
+    // Don't use emulator - emulator bad! :(
+    // await connectAuthEmulator(auth, "http://localhost:9099");
+    
     try {
         const user = await signInWithEmailAndPassword(auth, req.body.email, req.body.password);
         res.status(200).json(user);
@@ -19,11 +21,12 @@ import {
     }
   }
 
-
 // Create a new user
-export const createUser = async () => {
+export const createUser = async (fb, req, res) => {
+    const auth = getAuth(fb);
+
     try {
-      const user = await createUserWithEmailAndPassword(auth, email, password)
+      const user = await createUserWithEmailAndPassword(auth, req.body.email, req.body.password);
       res.status(201).json(user);
     }
     catch (error) {
@@ -31,22 +34,20 @@ export const createUser = async () => {
     } 
   }
   
-// Listen to whether or not the user is logged in
-export const userLoginState = async () => {
-    onAuthStateChanged(auth, user => {
-      if (user) {
-        console.log(user)
-      }
-      else {
-        console.log("auth expired");
-      }
-    })
-  }
+// TODO: Implement later, not necessary right now  
+// // Listen to whether or not the user is logged in
+// export const userLoginState = async () => {
+//     onAuthStateChanged(auth, user => {
+//       if (user) {
+//         console.log(user)
+//       }
+//       else {
+//         console.log("auth expired");
+//       }
+//     })
+//   }
   
-// Log out
-export const logout = async () => {
-    await signOut(auth);
-}
-  
-  const auth = getAuth(firebaseApp);
-  connectAuthEmulator(auth, "http://localhost:9099");
+// // Log out
+// export const logout = async () => {
+//     await signOut(auth);
+// }
