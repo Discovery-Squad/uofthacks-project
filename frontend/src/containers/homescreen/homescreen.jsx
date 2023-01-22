@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { FrameOneImg } from '../../components/images/frame1';
 import { FrameSecImg } from '../../components/images/frame2';
 import { HistoImg } from '../../components/images/history';
@@ -54,7 +55,7 @@ const MainCard = styled.div`
     position: absolute;
     width: 90%;
     height: 27vh;
-    margin: 1vh 0 82vh 0;
+    margin: 1vh 0 88vh 0;
 `;
 
 const SecondCard = styled.div`
@@ -64,7 +65,7 @@ const SecondCard = styled.div`
     align-items: center;
     width: 85%;
     height: 18vh;
-    margin: 4.5vh 0 2vh 0;
+    margin: 1vh 0 2vh 0;
     border-radius: 15px 15px 15px 15px;
     background-color: white;
     box-shadow: 0 0 5px #888;
@@ -77,7 +78,7 @@ const ThirdCard = styled.div`
     align-items: center;
     width: 85%;
     height: 18vh;
-    margin: 0 0 5.5vh 0;
+    margin: 0 0 6.5vh 0;
     border-radius: 15px 15px 15px 15px;
     background-color: white;
     box-shadow: 0 0 5px #888;
@@ -85,7 +86,7 @@ const ThirdCard = styled.div`
 
 const ActivityTitle = styled.div`
     display: flex;
-    margin: 3vh 27vh 0 0;
+    margin: 0 27vh 0.5vh 0;
     flex-direction: column;
     color: black;
     font-family: 'Inter', sans-serif;
@@ -106,10 +107,9 @@ export function HomeScreen() {
             <MainContainer>
             <MainCard>
             <HistoImg/>
+            </MainCard>
 
             <ActivityTitle>Activity</ActivityTitle>
-
-            </MainCard>
             <SecondCard>
                 <FrameOneImg/>
             </SecondCard>
