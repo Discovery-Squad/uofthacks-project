@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { IconsImg } from '../../components/images/icons';
 import { LocationImg } from '../../components/images/location';
 
 const MainContainer = styled.div`
@@ -8,15 +9,16 @@ const MainContainer = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 90vh;
 `;
 
 const TopContainer = styled.div`
     width: 100%;
+    height: 10vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 3vh 0 0 0;
 `;
 
 const HomeTitle = styled.div`
@@ -28,8 +30,18 @@ const HomeTitle = styled.div`
 `;
 
 const BottomNav = styled.div`
-    
+    display: flex;
+    width: 100%;
+    height: 11vh;
+    box-shadow: 0 0 15px #888;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    margin: 28vh 0 0 0;
 `;
+
+
 
 export function HomeScreen() {
     return (
@@ -39,7 +51,12 @@ export function HomeScreen() {
 
                 <LocationImg/>
             </TopContainer>
-            
+
+            <MainContainer>
+            <BottomNav>
+                <IconsImg/>
+            </BottomNav>
+            </MainContainer>
         </div>
     )
 };
