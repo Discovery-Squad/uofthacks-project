@@ -9,8 +9,10 @@
     "axios": "^1.2.3",
     "cohere-ai": "^5.0.2",
     "framer-motion": "^8.5.0",
+    "mapbox-gl": "^2.12.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-map-gl": "^7.0.21",
     "react-router-dom": "^6.7.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.6"

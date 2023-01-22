@@ -53,7 +53,7 @@ const MainCard = styled.div`
     justify-content: center;
     align-items: center;
     position: absolute;
-    width: 90%;
+    width: 100%;
     height: 27vh;
     margin: 1vh 0 88vh 0;
 `;
@@ -106,7 +106,9 @@ export function HomeScreen() {
 
             <MainContainer>
             <MainCard>
+            <Link to='/run' style={{ textDecoration: 'none' }}>
             <HistoImg/>
+            </Link>
             </MainCard>
 
             <ActivityTitle>Activity</ActivityTitle>
