@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FrameLogoImg } from '../../components/images/logo';
+import { Link } from 'react-router-dom';
 
 const MainContainer = styled.div`
     display: flex;
@@ -23,11 +24,13 @@ const LogoContainer = styled.div`
 export function Splash() {
     return (
         <div>
+            <Link to='/intro' style={{ textDecoration: 'none' }}>
             <MainContainer>
                 <LogoContainer>
                     <FrameLogoImg/>
                 </LogoContainer>
             </MainContainer>
+            </Link>
         </div>
     )
 };
