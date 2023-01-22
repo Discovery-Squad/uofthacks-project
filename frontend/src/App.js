@@ -8,14 +8,19 @@ import { SignUp } from './containers/onboarding/signup';
 import { Preferences } from './containers/preferences/preferences';
 import { MyProfile } from './containers/profile/myprofile';
 import { ThemedRun } from './containers/themedrun/run';
+import { RunMode } from './containers/themedrun/runningmode';
+import { Splash } from './containers/splash/splash';
 
 function App() {
   return (
     <BrowserRouter>
     <Routes>
+
+      {/* Splash */}
+      <Route exact path="/" element={<Splash/>}/>
       
       {/* Onboard */}
-      <Route exact path="/" element={<Intro/>}/>
+      <Route exact path="/intro" element={<Intro/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/signup" element={<SignUp/>}/>
 
@@ -33,6 +38,9 @@ function App() {
 
       {/* Profile */}
       <Route path="/myprofile" element={<MyProfile/>}/>
+
+      {/* RunMode */}
+      <Route path="/runningmode" element={<RunMode/>}/>
 
     </Routes>
     </BrowserRouter>
