@@ -26,8 +26,6 @@ export const generateTourMessage = async (req, res) => {
         // Use Cohere to generate a summary of the landmark in the fashion that a tour guide would 
         // deliver it
         let message = "";
-        // message += await generateLandmarkDetails(article.title, content);
-        // message += await generateMotivationalResponse(req.body.disRemaining);
         message += await generateLandmarkIntro(article.title);
         message += await generateLandmarkDetails(article.title);
         message += await generateMotivationalResponse(req.body.disRemaining);
