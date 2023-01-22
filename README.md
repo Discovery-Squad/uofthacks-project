@@ -1,2 +1,2 @@
-# uofthacks-project
-Project
+# UofTHacks X Project: Wander
+
