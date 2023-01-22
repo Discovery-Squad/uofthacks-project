@@ -8,6 +8,7 @@ import { initializeApp } from "firebase/app";
 import writeUserData from "./controllers/write_sample.js";
 
 import toursRouter from "./routes/tours.js";
+import pathsRouter from "./routes/paths.js";
 
 // Initialize express app
 const app = express();
@@ -19,15 +20,7 @@ app.use(bodyParser.json());
 
 // Store routing middleware.
 app.use("/tours", toursRouter);
-
-// Firebase configuration 
-const firebaseConfig = {
-    // The value of `databaseURL` depends on the location of the database
-    databaseURL: "https://uofthacks-backend-default-rtdb.firebaseio.com/",
-  };  
-// Initialize Firebase app
-const fb = initializeApp(firebaseConfig);
-
+app.use("/paths", pathsRouter)
 
 app.get("/", (req, res) => {
   writeUserData(fb, "1234", "danny", "lazaro", "https://commons.wikimedia.org/wiki/Main_Page#/media/File:2015.07.07.-07-Mulde_Eilenburg--Duenen-Sandlaufkaefer.jpg");
