@@ -4,6 +4,7 @@ import homImg from '../../assets/images/home.svg';
 import mpImg from '../../assets/images/map.svg';
 import profImg from '../../assets/images/profile.svg';
 import pfImg from '../../assets/images/pref.svg';
+import { Link } from 'react-router-dom';
 
 const IconsContainer = styled.div`
     display: flex;
@@ -42,10 +43,11 @@ const ProfileImg = styled.img`
 export function IconsImg () {
     return (
         <IconsContainer>
-            <HomeImg src={homImg} />
-            <MapImg src={mpImg} />
-            <ProfileImg src={profImg} />
-            <PrefImg src={pfImg} />
+
+            <Link to='/home' style={{ textDecoration: 'none' }}><HomeImg src={homImg} /></Link>
+            <Link to='/explore' style={{ textDecoration: 'none' }}><MapImg src={mpImg} /></Link>
+            <Link to='/myprofile' style={{ textDecoration: 'none' }}><ProfileImg src={profImg} /></Link>
+            <Link to='/preferences' style={{ textDecoration: 'none' }}><PrefImg src={pfImg} /></Link>
         </IconsContainer>
     )
 }

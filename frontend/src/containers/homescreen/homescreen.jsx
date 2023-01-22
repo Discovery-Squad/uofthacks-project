@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
+import { FrameOneImg } from '../../components/images/frame1';
+import { FrameSecImg } from '../../components/images/frame2';
+import { HistoImg } from '../../components/images/history';
 import { IconsImg } from '../../components/images/icons';
 import { LocationImg } from '../../components/images/location';
 
@@ -9,7 +12,7 @@ const MainContainer = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 90vh;
+    height: 115vh;
 `;
 
 const TopContainer = styled.div`
@@ -33,14 +36,62 @@ const BottomNav = styled.div`
     display: flex;
     width: 100%;
     height: 11vh;
-    box-shadow: 0 0 15px #888;
+    box-shadow: 0 0 10px #888;
+    background-color: white;
     flex-direction: row;
     justify-content: center;
+    margin: 5vh 0 0 0;
     align-items: center;
     position: fixed;
-    margin: 28vh 0 0 0;
+    z-index: 0;
 `;
 
+const MainCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 90%;
+    height: 27vh;
+    margin: 1vh 0 82vh 0;
+`;
+
+const SecondCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+    height: 18vh;
+    margin: 4.5vh 0 2vh 0;
+    border-radius: 15px 15px 15px 15px;
+    background-color: white;
+    box-shadow: 0 0 5px #888;
+`;
+
+const ThirdCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+    height: 18vh;
+    margin: 0 0 5.5vh 0;
+    border-radius: 15px 15px 15px 15px;
+    background-color: white;
+    box-shadow: 0 0 5px #888;
+`;
+
+const ActivityTitle = styled.div`
+    display: flex;
+    margin: 3vh 27vh 0 0;
+    flex-direction: column;
+    color: black;
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+`;
 
 
 export function HomeScreen() {
@@ -53,6 +104,19 @@ export function HomeScreen() {
             </TopContainer>
 
             <MainContainer>
+            <MainCard>
+            <HistoImg/>
+
+            <ActivityTitle>Activity</ActivityTitle>
+
+            </MainCard>
+            <SecondCard>
+                <FrameOneImg/>
+            </SecondCard>
+
+            <ThirdCard>
+                <FrameSecImg/>
+            </ThirdCard>
             <BottomNav>
                 <IconsImg/>
             </BottomNav>
