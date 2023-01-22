@@ -12,28 +12,50 @@ cohere.init('ftC04BtCJRft9XSpIETUXY50QHIz7BKmPWaZee4p');
  * @param location The name of the landmark at the user's current location
  * @param article The wikipedia article that contains information about the above location
  */
-export const generateLandmarkDetails = async (location, article) => {
-  // Initialize the cohere client with the trial API key
-  cohere.init('ftC04BtCJRft9XSpIETUXY50QHIz7BKmPWaZee4p');
-  console.log("bruh");
+// export const generateLandmarkDetails = async (location, article) => {
+//   // Initialize the cohere client with the trial API key
+//   cohere.init('ftC04BtCJRft9XSpIETUXY50QHIz7BKmPWaZee4p');
   
+//   const response = await cohere.generate({
+//     model: "command-xlarge-nightly",
+//     prompt: `
+//     Please act like a tour guide, and write a 4-sentence summary that describes all the interesting things about this location like a tour guide would.
+//     Before the summary, write a sentence welcoming someone to this location, telling them what it is called. Do not include any text before the welcome statement.
+
+//     Article:
+//     Location: ${location}
+//     ${article}
+//     `,
+//     max_tokens: 500
+//   });
+
+//   console.log(`Prediction: ${response.body.generations[0].text}`);
+
+//   return response.body.generations[0].text;
+// };
+
+export const generateLandmarkIntro = async (location) => {
   const response = await cohere.generate({
     model: "command-xlarge-nightly",
-    prompt: `
-    Please act like a tour guide, and write a 4-sentence summary that describes all the interesting things about this location like a tour guide would.
-    Before the summary, write a sentence welcoming someone to this location, telling them what it is called. Do not include any text before the welcome statement.
-
-    Article:
-    Location: ${location}
-    ${article}
-    `,
+    prompt: `Pretend to be a running instructor and write one sentence to let your class know that they are passing by the location below.
+    
+            ${location}`,
     max_tokens: 500
   });
-
-  console.log(`Prediction: ${response.body.generations[0].text}`);
-
   return response.body.generations[0].text;
 };
+
+export const generateLandmarkDetails = async (location) => {
+  const response = await cohere.generate({
+    model: "command-xlarge-nightly",
+    prompt: `Give a 4-sentence long description of the following location that sounds like it was written by a tour guide.
+    
+            ${location}`,
+    max_tokens: 500
+});
+
+return response.body.generations[0].text;
+}
 
 /**
  * Uses the Cohere API to motivate the runner and tell them the distance left in the run

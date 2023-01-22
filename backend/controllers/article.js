@@ -14,7 +14,7 @@ export const getNearbyArticle = async (lat, long) => {
         action: "query",
         list: "geosearch",
         gscoord: `${lat}|${long}`,
-        gsradius: "10",
+        gsradius: "100",
         gslimit: "100",
         format: "json"
     };
