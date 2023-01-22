@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { RunningImg } from '../../components/images/running';
-
+import { Link } from 'react-router-dom';
 
 const MainContainer = styled.div`
     display: flex;
@@ -94,9 +94,11 @@ export function Intro() {
                     </IntroText>
                     
                     <ButtonContainer>
+                        <Link to='/signup' style={{ textDecoration: 'none' }}>
                         <Button>
                             Get Started
                         </Button>
+                        </Link>
                     </ButtonContainer>
                 </BottomContainer>
             </MainContainer>
