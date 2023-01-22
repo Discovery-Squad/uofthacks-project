@@ -1,6 +1,6 @@
 import express from "express";
 import { initializeApp } from "firebase/app";
-
+import fb from "../controllers/firebase.js";
 import {
     addPath,
     getPath
@@ -8,13 +8,13 @@ import {
 
 const router = express.Router();
 
-// Firebase configuration 
-const firebaseConfig = {
-    // The value of `databaseURL` depends on the location of the database
-    databaseURL: "https://uofthacks-backend-default-rtdb.firebaseio.com/",
-  };  
-// Initialize Firebase app
-const fb = initializeApp(firebaseConfig);
+// // Firebase configuration 
+// const firebaseConfig = {
+//     // The value of `databaseURL` depends on the location of the database
+//     databaseURL: "https://uofthacks-backend-default-rtdb.firebaseio.com/",
+//   };  
+// // Initialize Firebase app
+// const fb = initializeApp(firebaseConfig);
 
 
 router.get("/:pathName", (req, res) => getPath(fb, req, res));

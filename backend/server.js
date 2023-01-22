@@ -3,7 +3,8 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import bodyParser from "body-parser";
 
-import { initializeApp } from "firebase/app";
+import { getAuth, connectAuthEmulator } from "firebase/auth";
+import fb from "./controllers/firebase.js";
 
 import writeUserData from "./controllers/write_sample.js";
 
@@ -28,5 +29,7 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => {
+  const auth = getAuth(fb);
+  connectAuthEmulator(auth, "http://localhost:9099");
   console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
 });
